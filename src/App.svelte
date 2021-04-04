@@ -12,7 +12,7 @@
     import { collectionData } from 'rxfire/firestore';
     import { startWith } from 'rxjs/operators';
 
-	import { findSaint, attributes } from './saints';
+	import { findSaint, attrList } from './saints';
 	
 	let gender = 'male';
 	let attr = '';
@@ -58,8 +58,8 @@
 	   <p>{result.desc}</p>
 	   
     
-	{#each attributes as attr} 
-		<p>{attr}</p>
+	{#each attrList as attrItem} 
+		<p>{attrItem}</p>
 	{/each}
 
 </main>

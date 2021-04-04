@@ -27,5 +27,5 @@ function allAttributes() {
     
 }
 
-export const attributes = (allAttributes())
+export const attrList = (allAttributes())
 
