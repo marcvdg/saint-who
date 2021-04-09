@@ -4,6 +4,7 @@
     div {
         margin-top: 3em;
      }
+    
     button {
         width: 100%;
         background: teal;   
@@ -11,6 +12,12 @@
         border-radius: 5px;
         padding: 9px;
         font-family: 'Open Sans', sans-serif;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #19A6A6;
+        transition-duration: 200ms;   
     }
     
 </style>

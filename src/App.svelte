@@ -1,67 +1,61 @@
 <script>
-	//import { gender, attr } from './stores.js';
-	
-	import AllSaints from "./AllSaints.svelte";
+	import { fade } from 'svelte/transition';
+
 	import AttrSelect from "./AttrSelect.svelte";
 	import Portrait from "./Portrait.svelte";
-	import Result from "./Result.svelte";
 	import SrcButton from "./SrcButton.svelte";
 	import ToggleButtons from "./ToggleButtons.svelte";
 
-	import { db } from './firebase';
-    import { collectionData } from 'rxfire/firestore';
-    import { startWith } from 'rxjs/operators';
-
-	import { findSaint, attrList } from './saints';
+	import { findSaint } from './saints';
 	
 	let gender = 'male';
 	let attr = '';
-
-	let result = '';
+	let portPath = 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Peter_Paul_Rubens_138.jpg'
+	let result;
+	let showResult = 0;
 
 	function runSearch() {
 		result = findSaint(attr, gender)
+		portPath = result.img;
+		if (result !== undefined){
+			toggleResult();
+		}
+	}
+	
+	function toggleResult() {
+		showResult = !showResult;
 	}
 
-
-	// const query = db.collection('saints')
-	// const saints = collectionData(query, 'id').pipe(startWith([]));
-	// let result = saints;
-
-	// function getSaint() {
-
-	// 	const query = db.collection('saints').where("sex", "==", gender).where("attribute", "array-contains", attr);
-	// 	const saints = collectionData(query, 'id').pipe(startWith([]));
-	// 	result = saints
-    // }
 </script>
 
 <main>
-	<Portrait />
-	<header>
-		<h1>Saint who?</h1>
-		<p>Knowing the holy <br/> by what they're holding</p>
-	</header>
-	<div>
-		<h2>I'm looking at a</h2>
-		<ToggleButtons bind:gender={gender}/>
-		<h2>with a</h2>
-
-		<AttrSelect bind:attr={attr}/>
-		<SrcButton on:click={runSearch}/>
-	</div>
-
-	<!-- <Result srcResult={srcResult}/> -->
+	<Portrait path={portPath}/>
 	
 
-       <h2>That's {result.name}!</h2> 
-	   <p>{result.desc}</p>
-	   
-    
-	{#each attrList as attrItem} 
-		<p>{attrItem}</p>
-	{/each}
+	{#if !showResult}
+		<header>
+			<h1>Saint who?</h1>
+			<p>Knowing the holy <br/> by what they're holding</p>
+		</header>
+		<div in:fade>
+			<h2>I'm looking at a</h2>
+			<ToggleButtons bind:gender={gender}/>
+			<h2>with a</h2>
 
+			<AttrSelect bind:attr={attr}/>
+			<SrcButton on:click={runSearch}/>
+		</div>
+	{/if}
+
+	{#if showResult}
+		<div in:fade>
+			<header>
+				<h1>{result.name}</h1>
+			</header>
+	   		<p>{result.desc}</p>
+			<p class='fakelink' on:click={toggleResult}>Back to search</p>
+		</div>
+	{/if}
 </main>
 
 
@@ -107,6 +101,13 @@
 
 	header p {
 		margin-top: 0;
+	}
+
+	.fakelink {
+		color: teal;
+		font-size: 0.8em;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 
 	@media (min-width: 640px) {

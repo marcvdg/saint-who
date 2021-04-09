@@ -1,11 +1,8 @@
 <script>
-    import { db } from './firebase';
-    import { collectionData } from 'rxfire/firestore';
-    import { startWith } from 'rxjs/operators';
+    import { attrList } from './saints';
 
     export let attr
-    const query = db.collection('attributes')
-    const attributes = collectionData(query, 'id').pipe(startWith([]));
+    
 </script>
 
 <!-- <label for="attribute-select">Holding a:</label> -->
@@ -15,8 +12,8 @@
 
         <option selected disabled>Choose an option</option>
 
-        {#each $attributes as attribute }
-            <option class="optionstyle" value="{attribute.name}">{attribute.name}</option>
+        {#each attrList as attr }
+            <option class="optionstyle" value="{attr}">{attr}</option>
         {/each}
         
     </select>

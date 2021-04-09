@@ -35,14 +35,17 @@
         z-index: 90;
         width: 10rem;
         font-family: 'Open Sans', sans-serif;
+        transition-duration: 200ms;
     }
 
     label:hover {
         background: #DDD;
+        transition-duration: 200ms;
     }
     
     input[type="radio"]:checked + label {
         background: teal;   
         color: white;
+        transition-duration: 200ms;
     }
 </style>
