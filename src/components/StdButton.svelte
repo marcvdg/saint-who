@@ -1,4 +1,4 @@
-<div><button on:click>Who's that saint?</button></div>
+<div><button on:click><slot>ButtonText</slot></button></div>
 
 <style>
     div {

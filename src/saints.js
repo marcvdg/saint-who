@@ -1,4 +1,4 @@
-const saintsLib = [
+export const saintsLib = [
     { 
         name: 'Matthew the Apostle', 
         img: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Guido_Reni_043.jpg', 
@@ -10,7 +10,7 @@ const saintsLib = [
         name: 'Mark the Evangelist', 
         img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/GRM_Inv._J-3179.jpg', 
         desc: 'One of the four evangelists', 
-        attr: ['lion'], 
+        attr: ['lion', 'book', 'pen'], 
         gender: 'male' 
     },
     { 
@@ -71,26 +71,5 @@ const saintsLib = [
     }
 ]
 
-export function findSaint(attr, gender){
-    for (var i=0; i < saintsLib.length; i++) {
-        if (saintsLib[i].gender === gender && saintsLib[i].attr.includes(attr)) {
-            return saintsLib[i];
-        }
-    }
-    return undefined
-}
-
-
-function allAttributes() {
-    let attrSet = new Set();
-    for (let i = 0; i < saintsLib.length; i++) {
-        for (let j = 0; j < saintsLib[i].attr.length; j++) {
-            attrSet.add(saintsLib[i].attr[j])
-        }
-    }
-    return [...attrSet].sort();
-    
-}
-
-export const attrList = (allAttributes())
+ 
 

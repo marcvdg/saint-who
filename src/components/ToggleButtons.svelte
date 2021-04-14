@@ -33,7 +33,7 @@
         border-radius: 5px;
         cursor: pointer;
         z-index: 90;
-        width: 10rem;
+        width: 43.5%;
         font-family: 'Open Sans', sans-serif;
         transition-duration: 200ms;
     }

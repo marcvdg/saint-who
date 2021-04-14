@@ -1,19 +1,19 @@
 <script>
-    import { attrList } from './saints';
 
-    export let attr
+    export let choice;
+    export let optionList;
     
 </script>
 
-<!-- <label for="attribute-select">Holding a:</label> -->
+<!-- CONSIDER PUTTING THE LABEL HERE -->
 
 <div class="select">
-    <select bind:value={attr} name="attribute-select" id="attribute-select">
+    <select bind:value={choice} name="attribute-select" id="attribute-select">
 
         <option selected disabled>Choose an option</option>
 
-        {#each attrList as attr }
-            <option class="optionstyle" value="{attr}">{attr}</option>
+        {#each optionList as option }
+            <option class="optionstyle" value="{option}">{option}</option>
         {/each}
         
     </select>
@@ -40,7 +40,7 @@
     .select {
         position: relative;
         display: flex;
-        width: 22em;
+        width: 100%;
         height: 2.5em;
         line-height: 3;
         background: white;

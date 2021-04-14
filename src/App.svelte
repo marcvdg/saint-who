@@ -1,27 +1,34 @@
 <script>
 	import { fade } from 'svelte/transition';
 
-	import AttrSelect from "./AttrSelect.svelte";
-	import Portrait from "./Portrait.svelte";
-	import SrcButton from "./SrcButton.svelte";
-	import ToggleButtons from "./ToggleButtons.svelte";
+	import StdSelect from "./components/StdSelect.svelte";
+	import StdButton from "./components/StdButton.svelte";
+	import Portrait from "./components/Portrait.svelte";
+	import ToggleButtons from "./components/ToggleButtons.svelte";
+	import Result from "./Result.svelte";
 
-	import { findSaint } from './saints';
+	import { saintsLib } from './saints.js';
+	import { getAttributes, findSaint } from './util.js';
 	
 	let gender = 'male';
 	let attr = '';
 	let portPath = 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Peter_Paul_Rubens_138.jpg'
-	let result;
+	let resultList;
 	let showResult = 0;
 
+	// The search functions.
+
+	const attrList = (getAttributes(saintsLib))
+
 	function runSearch() {
-		result = findSaint(attr, gender)
-		portPath = result.img;
-		if (result !== undefined){
+		resultList = findSaint(attr, gender, saintsLib)
+		portPath = resultList[0].img;
+		if (resultList.length > 0){
 			toggleResult();
 		}
 	}
 	
+
 	function toggleResult() {
 		showResult = !showResult;
 	}
@@ -29,10 +36,10 @@
 </script>
 
 <main>
-	<Portrait path={portPath}/>
 	
-
+	
 	{#if !showResult}
+		<Portrait />
 		<header>
 			<h1>Saint who?</h1>
 			<p>Knowing the holy <br/> by what they're holding</p>
@@ -41,18 +48,14 @@
 			<h2>I'm looking at a</h2>
 			<ToggleButtons bind:gender={gender}/>
 			<h2>with a</h2>
-
-			<AttrSelect bind:attr={attr}/>
-			<SrcButton on:click={runSearch}/>
+			<StdSelect bind:choice={attr} optionList={attrList}/>
+			<StdButton on:click={runSearch}>Who's that saint?</StdButton>
 		</div>
 	{/if}
 
 	{#if showResult}
 		<div in:fade>
-			<header>
-				<h1>{result.name}</h1>
-			</header>
-	   		<p>{result.desc}</p>
+			<Result resultList={resultList} attr={attr} gender={gender}/>
 			<p class='fakelink' on:click={toggleResult}>Back to search</p>
 		</div>
 	{/if}
@@ -68,7 +71,7 @@
 	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		max-width: 300px;
 		margin: 0 auto;
 		overflow: visible;
 		

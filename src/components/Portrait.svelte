@@ -1,10 +1,10 @@
 <script>
-    export let saint = 'Teresa'
-    export let path; 
+    export let alt = 'Teresa of Avila'
+    export let path = 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Peter_Paul_Rubens_138.jpg'; 
 </script>
 
 <div>
-    <img src='{path}' alt={saint}>
+    <img src='{path}' alt={alt}>
 </div>
 
 <style>
@@ -19,9 +19,9 @@
         -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
+    /* Portrait image – has to be portrait size as well */
     img {
         width: 100%;
         overflow: hidden;
-        
     }
 </style>
