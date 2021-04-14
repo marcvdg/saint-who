@@ -1,7 +1,8 @@
 <script>
 	import StdSelect from "./components/StdSelect.svelte";
 	import StdButton from "./components/StdButton.svelte";
-	import { findSaint } from "./util";	
+	import Portrait from "./components/Portrait.svelte";
+	import { getAttributes, findSaint } from "./util";	
 
     export let resultList;
 	export let attr;

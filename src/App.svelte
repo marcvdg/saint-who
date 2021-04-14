@@ -1,33 +1,34 @@
 <script>
+	// Svelte elements
 	import { fade } from 'svelte/transition';
 
-	import StdSelect from "./components/StdSelect.svelte";
-	import StdButton from "./components/StdButton.svelte";
-	import Portrait from "./components/Portrait.svelte";
-	import ToggleButtons from "./components/ToggleButtons.svelte";
+	// Components
 	import Result from "./Result.svelte";
+	import Search from './Search.svelte';
 
+	// Saints collection and util functions
 	import { saintsLib } from './saints.js';
 	import { getAttributes, findSaint } from './util.js';
 	
+	// Vars
 	let gender = 'male';
 	let attr = '';
-	let portPath = 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Peter_Paul_Rubens_138.jpg'
 	let resultList;
 	let showResult = 0;
-
-	// The search functions.
-
+	let portPath;
 	const attrList = (getAttributes(saintsLib))
 
-	function runSearch() {
+	// Functions 
+	function handleSearch(event) {
+		attr = event.detail.attr
+		gender = event.detail.gender
+		
 		resultList = findSaint(attr, gender, saintsLib)
 		portPath = resultList[0].img;
 		if (resultList.length > 0){
 			toggleResult();
 		}
 	}
-	
 
 	function toggleResult() {
 		showResult = !showResult;
@@ -39,18 +40,9 @@
 	
 	
 	{#if !showResult}
-		<Portrait />
-		<header>
-			<h1>Saint who?</h1>
-			<p>Knowing the holy <br/> by what they're holding</p>
-		</header>
-		<div in:fade>
-			<h2>I'm looking at a</h2>
-			<ToggleButtons bind:gender={gender}/>
-			<h2>with a</h2>
-			<StdSelect bind:choice={attr} optionList={attrList}/>
-			<StdButton on:click={runSearch}>Who's that saint?</StdButton>
-		</div>
+
+		<Search on:search={handleSearch} />
+
 	{/if}
 
 	{#if showResult}
@@ -60,8 +52,6 @@
 		</div>
 	{/if}
 </main>
-
-
 
 <style>
 
@@ -77,34 +67,11 @@
 		
 	}
 
-	h1 {
-		font-size: 3em;
-		font-family: 'Playfair Display', serif;
-		font-weight: 800;
-		color: black;
-		border-bottom: 1px solid lightgray;
-		width: auto;
-		display: inline-block;
-		margin-bottom: 0.2em;
-	}
-
-	h2 {
-		font-size: 1.5em;
-		font-family: 'Playfair Display', serif;
-		font-weight: 400;
-		color: #333;
-		width: auto;
-		display: block;
-	}
-
 	p {
 		font-family: 'Open Sans', serif;
 		font-size: 1.2em;
 	}
 
-	header p {
-		margin-top: 0;
-	}
 
 	.fakelink {
 		color: teal;

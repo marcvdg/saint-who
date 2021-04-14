@@ -5,7 +5,7 @@
     
 </script>
 
-<!-- CONSIDER PUTTING THE LABEL HERE -->
+<label for="attribute-select"><slot><!-- CONSIDER PUTTING THE LABEL HERE --></slot></label>
 
 <div class="select">
     <select bind:value={choice} name="attribute-select" id="attribute-select">

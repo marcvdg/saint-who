@@ -7,6 +7,10 @@
 	import Portrait from "./components/Portrait.svelte";
 	import ToggleButtons from "./components/ToggleButtons.svelte"
 
+	import { saintsLib } from './saints.js';
+	import { getAttributes, findSaint } from './util.js';
+
+
 	const dispatch = createEventDispatcher();
 
 	let attr;
@@ -19,7 +23,8 @@
 		});
 	}
 
-	let attrList;
+	const attrList = (getAttributes(saintsLib))
+
 
 
 </script>
