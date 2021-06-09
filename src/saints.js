@@ -57,7 +57,7 @@ export const saintsLib = [
     },
     { 
         name: 'Teresa of Ávila', 
-        img: 'https://en.wikipedia.org/wiki/Teresa_of_Ávila#/media/File:Peter_Paul_Rubens_138.jpg', 
+        img: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Peter_Paul_Rubens_138.jpg', 
         desc: 'Teresa of Ávila, born Teresa Sánchez de Cepeda y Ahumada, also called Saint Teresa of Jesus (28 March 1515 – 4 or 15 October 1582), was a Spanish noblewoman who felt called to convent life in the Catholic Church. A Carmelite nun, prominent Spanish mystic, religious reformer, author, theologian of the contemplative life and of mental prayer, she earned the rare distinction of being declared a Doctor of the Church, but not until over four centuries after her death. Active during the Catholic Reformation, she reformed the Carmelite Orders of both women and men. The movement she initiated was later joined by the younger Spanish Carmelite friar and mystic John of the Cross. It led eventually to the establishment of the Discalced Carmelites. A formal papal decree adopting the split from the old order was issued in 1580.', 
         attr: ['dove', 'crucifix', 'quill'], 
         gender: 'female' 
