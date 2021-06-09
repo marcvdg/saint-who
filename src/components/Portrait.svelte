@@ -16,6 +16,7 @@
         background-color: lightgray;
         display: block;
         margin: 0 auto;
+        mask-image: radial-gradient(white, black);
         -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 

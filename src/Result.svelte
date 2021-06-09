@@ -1,4 +1,5 @@
 <script>
+	// TODO: SPLIT REFINE FROM RESULT
 	import StdSelect from "./components/StdSelect.svelte";
 	import StdButton from "./components/StdButton.svelte";
 	import Portrait from "./components/Portrait.svelte";
