@@ -8,7 +8,7 @@
 	import ToggleButtons from "./components/ToggleButtons.svelte"
 
 	import { saintsLib } from './saints.js';
-	import { getAttributes, findSaint } from './util.js';
+	import { getAttributesWithFilter } from './util.js';
 
 
 	const dispatch = createEventDispatcher();
@@ -23,23 +23,22 @@
 		});
 	}
 
-	const attrList = (getAttributes(saintsLib))
-
-
+	$: attrList = (getAttributesWithFilter(saintsLib, 'gender', gender))
 
 </script>
-	<Portrait />
-		<header>
-			<h1>Saint who?</h1>
-			<p>Knowing the holy <br/> by what they're holding</p>
-		</header>
-		<div in:fade>
-			<h2>I'm looking at a</h2>
-			<ToggleButtons bind:gender={gender}/>
-			<h2>with a</h2>
-			<StdSelect bind:choice={attr} optionList={attrList}/>
-			<StdButton on:click={runSearch}>Who's that saint?</StdButton>
-		</div>
+
+<Portrait />
+<header>
+	<h1>Saint who?</h1>
+	<p>Knowing the holy <br/> by what they're holding</p>
+</header>
+<div in:fade>
+	<h2>I'm looking at a</h2>
+	<ToggleButtons bind:gender={gender} on:change={() => {attr = 'Choose an option'}}/>
+	<h2>with a</h2>
+	<StdSelect bind:choice={attr} optionList={attrList}/>
+	<StdButton on:click={runSearch}>Who's that saint?</StdButton>
+</div>
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&display=swap');

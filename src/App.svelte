@@ -8,7 +8,7 @@
 
 	// Saints collection and util functions
 	import { saintsLib } from './saints.js';
-	import { getAttributes, findSaint } from './util.js';
+	import { getAttributes, getAttributesWithFilter, findSaint } from './util.js';
 	
 	// Vars
 	let gender = 'male';
@@ -16,7 +16,7 @@
 	let resultList;
 	let showResult = 0;
 	let portPath;
-	const attrList = (getAttributes(saintsLib))
+	let attrList = (getAttributesWithFilter(saintsLib, 'gender', gender))
 
 	// Functions 
 	function handleSearch(event) {

@@ -1,18 +1,27 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+
+    //Make sure outer can detect changes
+    const dispatch = createEventDispatcher();
+
+    function handleChange() {
+		dispatch('change');
+	}
+
 	export let gender = 'male';
 
 </script>
 
 <div>
     <span>
-        <input id='radiomale' type=radio bind:group={gender} value={'male'}>
+        <input id='radiomale' type=radio bind:group={gender} value={'male'} on:change={(handleChange)}>
         <label for='radiomale' >
             Man
         </label>
     </span>
 
     <span>
-        <input id='radiofemale' type=radio bind:group={gender} value={'female'}>
+        <input id='radiofemale' type=radio bind:group={gender} value={'female'} on:change={(handleChange)}>
         <label for='radiofemale' >
             Woman
         </label>
