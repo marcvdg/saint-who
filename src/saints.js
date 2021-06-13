@@ -70,6 +70,34 @@ export const saintsLib = [
         gender: 'female' 
     },
     { 
+        name: 'Caecilia', 
+        img: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Vouet%2C_Simon_-_Saint_Cecilia_-_c._1626.jpg', 
+        desc: 'Saint Cecilia (Latin: Sancta Caecilia), is a Roman martyr venerated in Catholic, Orthodox, Anglican and some Lutheran churches, such as the Church of Sweden. She became the patron of music and musicians, it being written that, as the musicians played at her wedding, Cecilia "sang in her heart to the Lord". Musical compositions are dedicated to her, and her feast, on 22 November, is the occasion of concerts and musical festivals. St Cecilia is one of several virgin martyrs commemorated by name in the Canon of the Mass in the Latin Church. The church of Santa Cecilia in Trastevere, founded in the 3rd century by Pope Urban I, is believed to be on the site of the house where she lived and died.', 
+        attr: ['flute', 'organ', 'roses', 'violin', 'harp', 'harpsichord', 'songbird'], 
+        gender: 'female' 
+    },
+    { 
+        name: 'Clare of Assisi', 
+        img: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Fresco_depicting_Clare_of_Assisi_holding_a_lily.jpg', 
+        desc: 'Clare of Assisi (born Chiara Offreduccio and sometimes spelled Clara, Clair, Claire, Sinclair; 16 July 1194 – 11 August 1253) was an Italian saint and one of the first followers of Francis of Assisi. She founded the Order of Poor Ladies, a monastic religious order for women in the Franciscan tradition, and wrote their Rule of Life, the first set of monastic guidelines known to have been written by a woman. Following her death, the order she founded was renamed in her honour as the Order of Saint Clare, commonly referred to today as the Poor Clares. Her feast day is on 11 August.', 
+        attr: ['Monstrance', 'pyx (Eucharist box)', 'lamp', 'habit of the Poor Clares'], 
+        gender: 'female' 
+    },
+    { 
+        name: '', 
+        img: '', 
+        desc: '', 
+        attr: [], 
+        gender: 'male' 
+    },
+    { 
+        name: 'Lucia of Syracuse', 
+        img: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Santalucia.jpg', 
+        desc: "Lucia of Syracuse (283–304), also called Saint Lucia (Latin: Sancta Lucia) or Saint Lucy, was a Christian martyr who died during the Diocletianic Persecution. She is venerated as a saint in the Roman Catholic, Anglican, Lutheran, and Eastern Orthodox churches. She is one of eight women (including Saint Mary) explicitly commemorated by Roman Catholics in the Canon of the Mass. Her traditional feast day, known in Europe as Saint Lucy's Day, is observed by Western Christians on 13 December. Lucia of Syracuse was honored in the Middle Ages and remained a well-known saint in early modern England.", 
+        attr: ['cord', 'eyes', 'eyes on a dish', 'lamp', 'swords', 'yoke', 'tomb of Saint Agatha'], 
+        gender: 'female' 
+    },
+    { 
         name: '', 
         img: '', 
         desc: '', 
